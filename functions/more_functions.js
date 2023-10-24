@@ -18,7 +18,7 @@ function displayMailingLabel(name, address, city, state, zip) {
   const state2 = "Wisconsin"
   const zip2 ="98765"
 
-  console.log("\nMailing Label for Person 2:")
+  console.log("Mailing Label for Person 2:")
   displayMailingLabel(name2, address2, city2, state2, zip2)
 
 
