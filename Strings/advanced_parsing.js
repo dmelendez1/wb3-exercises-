@@ -1,3 +1,7 @@
+function removeFirstName(fullNmae) {
+    let 
+}
+
 function parseAndDisplayName(fullName) {
     let end = fullName.indexOf(" ");
     let firstName = fullName.substring(0, end);
