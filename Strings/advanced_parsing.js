@@ -5,25 +5,43 @@ function hasMiddleName(fullName) {
     return index > 0 && (lastIndex > index);
 }
 
-
-function getFirstName(fullname) {
-    fullName = fullName.trim()
+function getFirstName(fullName) {
+    fullName = fullName.trim();
     let index = fullName.indexOf(" ");
+    
+    if (index < 0) return fullName;
+    
+    return fullName.substring(0, index);
+}
 
-    if(index < 0) return fullName;
+function getMiddleName(fullName) {
+    let firstSpace = fullName.indexOf(" ");
+    let lastSpace = fullName.lastIndexOf(" ");
+    
+    if(firstSpace === lastSpace) return (""); // No middle name
+    
+    return fullName.substring(firstSpace + 1, lastSpace).trim();
+}
 
-    return fullName.substring(0, index)
+function getLastName(fullName) {
+    let lastSpace = fullName.lastIndexOf(" ");
+    if (lastSpace < 0) 
+    return ("");
+    return fullName.substring(lastSpace + 1).trim();
 }
 
 function parseAndDisplay(fullName) {
-    if(hasMiddleNmae(fullName)) {
-        console.log("Middle Name:", hasMiddleName(fullName));
-    } else {
-        console.log("First Name:", getFirstName(fullName));
+    let firstName = getFirstName(fullName);
+    let middleName = getMiddleName(fullName);
+    let lastName = getLastName(fullName);
+    
+    console.log("First Name:", firstName);
+    if (middleName) {
+        console.log("Middle Name:", middleName);
     }
+    console.log("Last Name:", lastName);
 }
 
-
-parseAndDisplayName("Cher");
-parseAndDisplayName("Brenda Kaye");
-parseAndDisplayName("Dana Lynn Wyatt");
+parseAndDisplay("Cher");
+parseAndDisplay("Brenda Kaye");
+parseAndDisplay("Dana Lynn Wyatt");
